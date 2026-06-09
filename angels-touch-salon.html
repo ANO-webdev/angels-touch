@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Angel's Touch Salon & Spa — Jacó, Costa Rica</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sky:       #A8D8EA;
+      --sky-light: #D6EEF8;
+      --sky-pale:  #EEF7FC;
+      --teal:      #3B9DAB;
+      --teal-dark: #2A7A88;
+      --navy:      #1A3A4A;
+      --sand:      #F5EDD8;
+      --sand-dark: #E8D9B8;
+      --white:     #FFFFFF;
+      --text-main: #1A3A4A;
+      --text-mid:  #3B6070;
+      --text-soft: #6B8FA0;
+      --gold:      #C4963A;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text-main);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    /* ─── NAV ─────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(168,216,234,0.3);
+      padding: 0 2rem;
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none;
+    }
+    .nav-logo-wings {
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+    .nav-logo-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: 0.03em;
+      line-height: 1.2;
+    }
+    .nav-logo-text span { color: var(--teal); }
+    .nav-links {
+      display: flex; align-items: center; gap: 1.8rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em;
+      text-transform: uppercase; color: var(--text-mid);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--teal); }
+    .nav-book {
+      background: var(--teal); color: var(--white) !important;
+      padding: 0.45rem 1.2rem; border-radius: 100px;
+      transition: background 0.2s !important;
+    }
+    .nav-book:hover { background: var(--teal-dark) !important; color: var(--white) !important; }
+
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; border: none; background: none; padding: 4px;
+    }
+    .hamburger span {
+      width: 22px; height: 2px; background: var(--navy);
+      border-radius: 2px; transition: 0.3s;
+    }
+    .mobile-menu {
+      display: none; flex-direction: column; gap: 0;
+      background: var(--white);
+      border-top: 1px solid rgba(168,216,234,0.4);
+      padding: 0.5rem 2rem 1.5rem;
+    }
+    .mobile-menu a {
+      font-size: 0.95rem; font-weight: 500; color: var(--text-mid);
+      text-decoration: none; padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(168,216,234,0.2);
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu.open { display: flex; }
+
+    /* ─── HERO ────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(160deg, var(--sky-pale) 0%, var(--sky-light) 40%, #c8e8f5 100%);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 100px 2rem 4rem;
+      position: relative; overflow: hidden;
+      text-align: center;
+    }
+    .hero-wave {
+      position: absolute; bottom: -2px; left: 0; right: 0;
+      height: 80px;
+    }
+    .hero-wings {
+      font-size: 3.5rem; margin-bottom: 0.5rem;
+      animation: float 4s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-8px); }
+    }
+    .hero-eyebrow {
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--teal);
+      margin-bottom: 0.75rem;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      font-weight: 600; line-height: 1.05;
+      color: var(--navy); margin-bottom: 0.3rem;
+    }
+    .hero-title span { color: var(--teal); font-style: italic; }
+    .hero-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem; color: var(--text-mid);
+      letter-spacing: 0.12em; text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .hero-tagline {
+      font-size: 1rem; color: var(--text-mid);
+      max-width: 520px; margin: 0 auto 2rem;
+      font-style: italic;
+    }
+    .hero-badges {
+      display: flex; flex-wrap: wrap; gap: 0.75rem;
+      justify-content: center; margin-bottom: 2.5rem;
+    }
+    .badge {
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(59,157,171,0.3);
+      color: var(--text-mid); font-size: 0.82rem; font-weight: 500;
+      padding: 0.35rem 1rem; border-radius: 100px;
+      backdrop-filter: blur(4px);
+    }
+    .hero-cta {
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--teal); color: var(--white);
+      padding: 0.85rem 2rem; border-radius: 100px;
+      font-size: 0.9rem; font-weight: 600; letter-spacing: 0.04em;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;
+      transition: background 0.2s, transform 0.15s;
+      box-shadow: 0 4px 20px rgba(59,157,171,0.35);
+    }
+    .btn-primary:hover { background: var(--teal-dark); transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent; color: var(--navy);
+      padding: 0.85rem 2rem; border-radius: 100px;
+      font-size: 0.9rem; font-weight: 600; letter-spacing: 0.04em;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;
+      border: 2px solid var(--teal); transition: all 0.2s;
+    }
+    .btn-outline:hover { background: var(--teal); color: var(--white); }
+
+    /* ─── SECTION BASE ────────────────────────────────── */
+    section { padding: 5rem 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--teal);
+      margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 600; color: var(--navy); line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    .section-sub {
+      font-size: 1rem; color: var(--text-mid);
+      max-width: 560px; margin-bottom: 3rem;
+    }
+    .divider {
+      width: 48px; height: 3px;
+      background: var(--teal); border-radius: 2px;
+      margin: 1rem 0 2.5rem;
+    }
+
+    /* ─── SERVICES ────────────────────────────────────── */
+    #services { background: var(--white); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .service-card {
+      background: var(--sky-pale);
+      border: 1px solid rgba(168,216,234,0.5);
+      border-radius: 20px; padding: 2rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(59,157,171,0.15);
+    }
+    .service-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+    .service-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem; font-weight: 600;
+      color: var(--navy); margin-bottom: 0.3rem;
+    }
+    .service-name-es {
+      font-size: 0.82rem; color: var(--teal);
+      font-weight: 500; letter-spacing: 0.04em;
+      margin-bottom: 0.75rem;
+    }
+    .service-desc {
+      font-size: 0.9rem; color: var(--text-mid);
+      margin-bottom: 1.25rem; line-height: 1.6;
+    }
+    .service-prices {
+      display: flex; gap: 0.5rem; flex-wrap: wrap;
+    }
+    .price-tag {
+      background: var(--white);
+      border: 1px solid rgba(59,157,171,0.25);
+      border-radius: 100px;
+      font-size: 0.8rem; font-weight: 600;
+      color: var(--teal-dark);
+      padding: 0.25rem 0.75rem;
+    }
+    .price-tag.highlight {
+      background: var(--teal); color: var(--white);
+      border-color: var(--teal);
+    }
+
+    /* ─── MENU / PRICING ──────────────────────────────── */
+    #menu { background: var(--navy); }
+    #menu .section-label { color: var(--sky); }
+    #menu .section-title { color: var(--white); }
+    #menu .section-sub { color: rgba(255,255,255,0.65); }
+    #menu .divider { background: var(--sky); }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1rem;
+    }
+    .menu-table {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(168,216,234,0.15);
+      border-radius: 16px; overflow: hidden;
+    }
+    .menu-table-head {
+      background: var(--teal);
+      padding: 1rem 1.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem; font-weight: 600;
+      color: var(--white); letter-spacing: 0.03em;
+    }
+    .menu-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0.85rem 1.5rem;
+      border-bottom: 1px solid rgba(168,216,234,0.08);
+    }
+    .menu-row:last-child { border-bottom: none; }
+    .menu-item-name {
+      font-size: 0.9rem; color: rgba(255,255,255,0.85); font-weight: 400;
+    }
+    .menu-item-name small {
+      display: block; font-size: 0.75rem;
+      color: rgba(255,255,255,0.45); margin-top: 1px;
+    }
+    .menu-price {
+      font-size: 0.9rem; font-weight: 600;
+      color: var(--sky); white-space: nowrap;
+    }
+    .menu-note {
+      margin-top: 1.5rem;
+      background: rgba(168,216,234,0.08);
+      border: 1px solid rgba(168,216,234,0.2);
+      border-radius: 12px; padding: 1rem 1.5rem;
+      font-size: 0.85rem; color: rgba(255,255,255,0.6);
+      display: flex; align-items: flex-start; gap: 0.5rem;
+    }
+
+    /* ─── ABOUT ───────────────────────────────────────── */
+    #about { background: var(--sand); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center;
+    }
+    .about-features { display: flex; flex-direction: column; gap: 1.25rem; }
+    .about-feature {
+      display: flex; align-items: flex-start; gap: 1rem;
+    }
+    .feature-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: var(--sky-light);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+    .feature-text h4 {
+      font-size: 0.95rem; font-weight: 600; color: var(--navy);
+      margin-bottom: 0.2rem;
+    }
+    .feature-text p {
+      font-size: 0.85rem; color: var(--text-mid); line-height: 1.5;
+    }
+    .about-visual {
+      background: linear-gradient(135deg, var(--sky-light), var(--sky));
+      border-radius: 24px; padding: 3rem 2rem;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .about-visual-wings { font-size: 4rem; margin-bottom: 1rem; }
+    .about-visual h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem; font-weight: 600; color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+    .about-visual p { font-size: 0.9rem; color: var(--text-mid); }
+    .about-visual .location {
+      margin-top: 1.5rem; font-weight: 600; color: var(--teal-dark);
+      font-size: 0.9rem;
+    }
+
+    /* ─── GALLERY ─────────────────────────────────────── */
+    #gallery { background: var(--sky-pale); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 200px);
+      gap: 1rem;
+    }
+    .gallery-item {
+      border-radius: 16px; overflow: hidden;
+      background: var(--sky-light);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3rem; position: relative;
+      transition: transform 0.3s;
+      min-height: 140px;
+    }
+    .gallery-item:hover { transform: scale(1.02); }
+    .gallery-item:first-child {
+      grid-column: span 2; grid-row: span 2;
+    }
+    .gallery-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(26,58,74,0.7));
+      color: white; font-size: 0.8rem; font-weight: 500;
+      padding: 1.5rem 1rem 0.75rem;
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .gallery-item:hover .gallery-caption { opacity: 1; }
+    .gallery-placeholder-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem; color: var(--text-soft);
+      text-align: center; padding: 1rem;
+    }
+
+    /* ─── BOOKING ─────────────────────────────────────── */
+    #booking {
+      background: linear-gradient(135deg, var(--sky-light) 0%, var(--sky-pale) 100%);
+    }
+    .booking-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: start;
+    }
+    .booking-form {
+      background: var(--white);
+      border-radius: 24px; padding: 2.5rem;
+      box-shadow: 0 8px 40px rgba(59,157,171,0.12);
+    }
+    .booking-form h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem; font-weight: 600;
+      color: var(--navy); margin-bottom: 1.5rem;
+    }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label {
+      display: block; font-size: 0.8rem; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--text-mid); margin-bottom: 0.4rem;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%; padding: 0.75rem 1rem;
+      border: 1.5px solid rgba(168,216,234,0.6);
+      border-radius: 10px; font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem; color: var(--text-main);
+      background: var(--sky-pale);
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--teal);
+    }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .btn-wa {
+      width: 100%; padding: 0.9rem;
+      background: #25D366; color: var(--white);
+      border: none; border-radius: 100px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem; font-weight: 600;
+      cursor: pointer; display: flex; align-items: center;
+      justify-content: center; gap: 0.6rem;
+      transition: background 0.2s, transform 0.15s;
+      text-decoration: none;
+      margin-top: 0.5rem;
+    }
+    .btn-wa:hover { background: #1eb955; transform: translateY(-2px); }
+    .booking-info { display: flex; flex-direction: column; gap: 1.5rem; }
+    .booking-card {
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(168,216,234,0.5);
+      border-radius: 16px; padding: 1.5rem;
+    }
+    .booking-card h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem; font-weight: 600;
+      color: var(--navy); margin-bottom: 0.75rem;
+    }
+    .booking-card p, .booking-card a {
+      font-size: 0.9rem; color: var(--text-mid); margin-bottom: 0.3rem;
+      display: flex; align-items: center; gap: 0.5rem;
+      text-decoration: none;
+    }
+    .booking-card a:hover { color: var(--teal); }
+    .hours-row { display: flex; justify-content: space-between; }
+    .hours-row span:last-child { font-weight: 500; color: var(--navy); }
+
+    /* ─── CONTACT ─────────────────────────────────────── */
+    #contact { background: var(--white); padding-top: 3rem; }
+    .contact-strip {
+      background: var(--teal);
+      border-radius: 24px; padding: 3rem;
+      display: flex; flex-wrap: wrap;
+      justify-content: space-between; align-items: center;
+      gap: 2rem;
+    }
+    .contact-left h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem; font-weight: 600;
+      color: var(--white); margin-bottom: 0.5rem;
+    }
+    .contact-left p { color: rgba(255,255,255,0.8); font-size: 0.9rem; }
+    .contact-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-white {
+      background: var(--white); color: var(--teal-dark);
+      padding: 0.8rem 1.75rem; border-radius: 100px;
+      font-size: 0.9rem; font-weight: 600;
+      text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      transition: transform 0.15s;
+    }
+    .btn-white:hover { transform: translateY(-2px); }
+    .btn-ghost {
+      background: rgba(255,255,255,0.15); color: var(--white);
+      padding: 0.8rem 1.75rem; border-radius: 100px;
+      font-size: 0.9rem; font-weight: 600;
+      text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      border: 1px solid rgba(255,255,255,0.3);
+      transition: background 0.2s;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.25); }
+
+    /* ─── FOOTER ──────────────────────────────────────── */
+    footer {
+      background: var(--navy); padding: 3rem 2rem 2rem;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem; font-weight: 600;
+      color: var(--white); margin-bottom: 0.25rem;
+    }
+    .footer-logo span { color: var(--sky); }
+    .footer-sub {
+      font-size: 0.8rem; color: rgba(255,255,255,0.5);
+      letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .footer-links {
+      display: flex; justify-content: center; gap: 2rem;
+      flex-wrap: wrap; margin-bottom: 2rem;
+    }
+    .footer-links a {
+      font-size: 0.82rem; color: rgba(255,255,255,0.55);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--sky); }
+    .footer-copy {
+      font-size: 0.78rem; color: rgba(255,255,255,0.3);
+    }
+
+    /* ─── FLOATING WA ─────────────────────────────────── */
+    .wa-float {
+      position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 200;
+      width: 56px; height: 56px; border-radius: 50%;
+      background: #25D366;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      text-decoration: none; font-size: 1.6rem;
+      transition: transform 0.2s;
+    }
+    .wa-float:hover { transform: scale(1.1); }
+
+    /* ─── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-visual { order: -1; }
+      .booking-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
+      .gallery-item { min-height: 160px; }
+      .gallery-item:first-child { grid-column: span 2; grid-row: span 1; min-height: 200px; }
+      .contact-strip { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 600px) {
+      nav { padding: 0 1.25rem; }
+      section { padding: 3.5rem 1.25rem; }
+      .hero-badges { gap: 0.5rem; }
+      .badge { font-size: 0.75rem; padding: 0.3rem 0.75rem; }
+      .btn-primary, .btn-outline { padding: 0.75rem 1.5rem; font-size: 0.85rem; }
+      /* Services */
+      .services-grid { grid-template-columns: 1fr; }
+      /* Menu pricing rows — allow price to wrap below name on tiny screens */
+      .menu-row { flex-direction: column; align-items: flex-start; gap: 0.25rem; padding: 0.75rem 1.25rem; }
+      .menu-price { font-size: 0.85rem; color: var(--sky); }
+      .menu-grid { grid-template-columns: 1fr; }
+      /* Gallery */
+      .gallery-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+      .gallery-item { min-height: 140px; }
+      .gallery-item:first-child { grid-column: span 1; grid-row: span 1; min-height: 180px; }
+      /* Booking */
+      .booking-form { padding: 1.75rem 1.25rem; }
+      .form-row { grid-template-columns: 1fr; }
+      /* Contact */
+      .contact-strip { padding: 1.75rem 1.5rem; flex-direction: column; align-items: flex-start; }
+      .contact-actions { width: 100%; }
+      .btn-white, .btn-ghost { flex: 1; justify-content: center; text-align: center; }
+      /* Footer */
+      .footer-links { gap: 1rem; }
+      /* Hours row */
+      .hours-row { flex-direction: column; gap: 0.1rem; }
+      .hours-row span:last-child { color: var(--teal); font-size: 0.82rem; }
+      /* Booking card links */
+      .booking-card p, .booking-card a { font-size: 0.85rem; }
+    }
+    @media (max-width: 380px) {
+      .hero-title { font-size: 2.4rem; }
+      .hero-cta { flex-direction: column; align-items: center; }
+      .btn-primary, .btn-outline { width: 100%; justify-content: center; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-wings { animation: none; }
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">
+      <span class="nav-logo-wings">🕊️</span>
+      <div class="nav-logo-text">Angel's <span>Touch</span><br>
+        <span style="font-size:0.7rem;font-family:'DM Sans',sans-serif;font-weight:400;color:var(--text-soft);letter-spacing:0.06em;text-transform:uppercase;">Salon &amp; Spa · Jacó</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#menu">Pricing</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#booking" class="nav-book">Book Now</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services" onclick="closeMobile()">Services</a>
+    <a href="#menu" onclick="closeMobile()">Pricing</a>
+    <a href="#about" onclick="closeMobile()">About</a>
+    <a href="#gallery" onclick="closeMobile()">Gallery</a>
+    <a href="#contact" onclick="closeMobile()">Contact</a>
+    <a href="#booking" onclick="closeMobile()" style="color:var(--teal);font-weight:600;">Book Now</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-wings">🕊️</div>
+  <p class="hero-eyebrow">Perfect for Travelers &amp; Couples · Jacó, Costa Rica</p>
+  <h1 class="hero-title">Angel's <span>Touch</span></h1>
+  <p class="hero-subtitle">Salon &amp; Spa</p>
+  <p class="hero-tagline">Where skilled hands and coastal calm meet — licensed therapists, private rooms, and treatments designed for the pace of Jacó.</p>
+  <div class="hero-badges">
+    <span class="badge">✓ Licensed Therapists</span>
+    <span class="badge">✓ Private Rooms</span>
+    <span class="badge">✓ Clean &amp; Relaxing Environment</span>
+    <span class="badge">🌴 Walk-ins Welcome</span>
+  </div>
+  <div class="hero-cta">
+    <a href="#booking" class="btn-primary">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A12 12 0 0 0 3.48 20.52L2 22l1.48-1.48A12 12 0 1 0 20.52 3.48zM12 21a9 9 0 1 1 9-9 9 9 0 0 1-9 9z"/><path d="M17 14.5c-.3-.1-1.8-.9-2.1-1s-.5-.2-.7.2-1.1 1.3-1.4 1.6-.5.2-.9 0a8.6 8.6 0 0 1-2.5-1.6 9.4 9.4 0 0 1-1.7-2.2c-.2-.5 0-.7.1-.9l.6-.7.3-.5a.6.6 0 0 0 0-.6l-.9-2.1c-.2-.5-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.7 3.7 0 0 0-1.1 2.8 6.4 6.4 0 0 0 1.4 3.4c.2.3 2.5 3.8 6.1 5.3a7.3 7.3 0 0 0 2 .6 4.6 4.6 0 0 0 2.1-.1 3.4 3.4 0 0 0 2.2-1.6 2.9 2.9 0 0 0 .2-1.6c-.1-.2-.3-.3-.6-.4z"/></svg>
+      Book via WhatsApp
+    </a>
+    <a href="#menu" class="btn-outline">View Prices</a>
+  </div>
+  <svg class="hero-wave" viewBox="0 0 1440 80" preserveAspectRatio="none">
+    <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="white"/>
+  </svg>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <p class="section-label">What We Offer</p>
+    <h2 class="section-title">Treatments &amp; Services</h2>
+    <div class="divider"></div>
+    <p class="section-sub">From deep tissue to hot stone, every treatment is performed by licensed therapists in our calm, private setting steps from the Pacific.</p>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">🌊</div>
+        <div class="service-name">Relaxing Massage</div>
+        <div class="service-name-es">Masaje Relajante</div>
+        <p class="service-desc">A full-body Swedish-style massage to melt tension and restore calm after a day exploring Jacó. Perfect for first-timers.</p>
+        <div class="service-prices">
+          <span class="price-tag">1hr — $75</span>
+          <span class="price-tag">2hr — $140</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">💪</div>
+        <div class="service-name">Decompression Massage</div>
+        <div class="service-name-es">Descontracturante</div>
+        <p class="service-desc">Targeted deep work on contracted muscles. Ideal for surfers, hikers, or anyone carrying long-haul travel tension.</p>
+        <div class="service-prices">
+          <span class="price-tag">1hr — $75</span>
+          <span class="price-tag">2hr — $140</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">❤️</div>
+        <div class="service-name">Deep Tissue Massage</div>
+        <div class="service-name-es">Masaje Profundo</div>
+        <p class="service-desc">Firm, precise pressure targeting deep muscle layers. Releases chronic tension and improves circulation throughout the body.</p>
+        <div class="service-prices">
+          <span class="price-tag">1hr — $75</span>
+          <span class="price-tag">2hr — $140</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🪨</div>
+        <div class="service-name">Hot Rock Massage</div>
+        <div class="service-name-es">Piedras Calientes</div>
+        <p class="service-desc">Warm volcanic stones glide along the body, combining heat therapy with massage for an exceptionally deep release.</p>
+        <div class="service-prices">
+          <span class="price-tag">1hr — $80</span>
+          <span class="price-tag price-tag highlight">2hr — $150</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🦶</div>
+        <div class="service-name">Foot Massage + Scrub</div>
+        <div class="service-name-es">Masaje en Pies y Exfoliación</div>
+        <p class="service-desc">Reflexology-based foot treatment combined with a revitalizing scrub. A must after beach days and long walks.</p>
+        <div class="service-prices">
+          <span class="price-tag">1hr — $80</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🌴</div>
+        <div class="service-name">Relax Express</div>
+        <div class="service-name-es">Relax Express</div>
+        <p class="service-desc">A 30-minute focused session — ideal before or after the beach. Quick, effective, and easy on the wallet.</p>
+        <div class="service-prices">
+          <span class="price-tag price-tag highlight">30min — $40</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MENU / PRICING -->
+<section id="menu">
+  <div class="container">
+    <p class="section-label">Full Price List</p>
+    <h2 class="section-title" style="color:var(--white);">Menu &amp; Pricing</h2>
+    <div class="divider"></div>
+    <p class="section-sub">All prices in USD. No hidden charges — what you see is what you pay.</p>
+
+    <div class="menu-grid">
+
+      <div class="menu-table">
+        <div class="menu-table-head">💆 Massages</div>
+        <div class="menu-row">
+          <div class="menu-item-name">Relaxing <small>Relajante</small></div>
+          <div class="menu-price">1hr $75 &nbsp;/&nbsp; 2hr $140</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-item-name">Decompression <small>Descontracturante</small></div>
+          <div class="menu-price">1hr $75 &nbsp;/&nbsp; 2hr $140</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-item-name">Deep Tissue <small>Profundo</small></div>
+          <div class="menu-price">1hr $75 &nbsp;/&nbsp; 2hr $140</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-item-name">Hot Rock <small>Piedras Calientes</small></div>
+          <div class="menu-price">1hr $80 &nbsp;/&nbsp; 2hr $150</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-item-name">Foot Massage + Scrub <small>Masaje en Pies y Exfoliación</small></div>
+          <div class="menu-price">1hr $80</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-item-name">Relax Express 🌴 <small>Ideal before/after beach</small></div>
+          <div class="menu-price">30min $40</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="menu-table" style="margin-bottom:1rem;">
+          <div class="menu-table-head">👫 Couples &amp; Packages</div>
+          <div class="menu-row">
+            <div class="menu-item-name">Couples Relaxing <small>Para dos personas</small></div>
+            <div class="menu-price">1hr $140</div>
+          </div>
+          <div class="menu-row">
+            <div class="menu-item-name">Couples Hot Rock <small>Piedras Calientes Pareja</small></div>
+            <div class="menu-price">1hr $150</div>
+          </div>
+          <div class="menu-row">
+            <div class="menu-item-name">Relax Express x2 <small>Dos personas express</small></div>
+            <div class="menu-price">30min $75</div>
+          </div>
+        </div>
+
+        <div class="menu-note">
+          <span>ℹ️</span>
+          <span>Prices are per person unless stated. Couples treatments are in the same private room simultaneously. WhatsApp us to check availability and confirm your slot.</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <p class="section-label">About Us</p>
+        <h2 class="section-title">Your wellness retreat in the heart of Jacó</h2>
+        <div class="divider"></div>
+        <p style="font-size:0.95rem;color:var(--text-mid);margin-bottom:2rem;line-height:1.8;">
+          Angel's Touch Salon &amp; Spa is located at Pacific Center Local #1, right in the pulse of Jacó. We welcome travelers, surfers, couples, and locals looking for genuine relaxation — not a rushed experience. Every therapist is licensed and trained, and every treatment is delivered in a clean, private room designed for your comfort.
+        </p>
+        <div class="about-features">
+          <div class="about-feature">
+            <div class="feature-icon">🏅</div>
+            <div class="feature-text">
+              <h4>Licensed Therapists</h4>
+              <p>All treatments performed by certified, experienced professionals.</p>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="feature-icon">🚪</div>
+            <div class="feature-text">
+              <h4>Private Rooms</h4>
+              <p>Dedicated treatment rooms — relaxed, comfortable, and discreet.</p>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="feature-icon">🌺</div>
+            <div class="feature-text">
+              <h4>Perfect for Travelers &amp; Couples</h4>
+              <p>Bilingual staff, flexible hours — we make it easy to unwind on your schedule.</p>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="feature-icon">📍</div>
+            <div class="feature-text">
+              <h4>Central Location</h4>
+              <p>Pacific Center Local #1, Jacó — easy to find, easy to return to.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="about-visual">
+        <div class="about-visual-wings">🕊️</div>
+        <h3>Angel's Touch<br>Salon &amp; Spa</h3>
+        <p>Jacó, Costa Rica 🌴</p>
+        <div class="location">📍 Pacific Center Local #1 · Jacó</div>
+        <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(59,157,171,0.2);">
+          <p style="font-size:0.82rem;color:var(--text-soft);margin-bottom:0.5rem;">REACH US</p>
+          <a href="https://wa.me/50662162030" style="display:flex;align-items:center;justify-content:center;gap:0.5rem;font-weight:600;color:var(--teal-dark);font-size:1rem;text-decoration:none;">
+            📱 +506 6216-2030
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="container">
+    <p class="section-label">Our Space</p>
+    <h2 class="section-title">A place made for calm</h2>
+    <div class="divider"></div>
+    <p class="section-sub" style="margin-bottom:2rem;">Add your photos here — contact us on WhatsApp to share images of your visit.</p>
+
+    <div class="gallery-grid">
+      <div class="gallery-item" style="background:linear-gradient(135deg,#A8D8EA,#c8e8f5);min-height:300px;">
+        <div class="gallery-placeholder-text">🕊️<br>Angel's Touch<br>Salon &amp; Spa</div>
+        <div class="gallery-caption">Jacó, Costa Rica</div>
+      </div>
+      <div class="gallery-item" style="background:linear-gradient(135deg,#D6EEF8,#A8D8EA);">
+        <div style="font-size:2.5rem;">🪨</div>
+        <div class="gallery-caption">Hot Stone Treatment</div>
+      </div>
+      <div class="gallery-item" style="background:linear-gradient(135deg,#EEF7FC,#D6EEF8);">
+        <div style="font-size:2.5rem;">🌊</div>
+        <div class="gallery-caption">Relaxing Massage</div>
+      </div>
+      <div class="gallery-item" style="background:linear-gradient(135deg,#c8e8f5,#A8D8EA);">
+        <div style="font-size:2.5rem;">🌴</div>
+        <div class="gallery-caption">Pacific Center, Jacó</div>
+      </div>
+      <div class="gallery-item" style="background:linear-gradient(135deg,#A8D8EA,#EEF7FC);">
+        <div style="font-size:2.5rem;">💆</div>
+        <div class="gallery-caption">Private Treatment Rooms</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section id="booking">
+  <div class="container">
+    <p class="section-label">Reservations</p>
+    <h2 class="section-title">Book Your Session</h2>
+    <div class="divider"></div>
+    <div class="booking-inner">
+
+      <div class="booking-form">
+        <h3>Send a Booking Request</h3>
+        <div id="bookingFormFields">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" id="bName" placeholder="e.g. Sarah Johnson" />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Service</label>
+              <select id="bService">
+                <option value="">Choose a treatment</option>
+                <option>Relaxing Massage — 1hr $75</option>
+                <option>Relaxing Massage — 2hr $140</option>
+                <option>Decompression — 1hr $75</option>
+                <option>Decompression — 2hr $140</option>
+                <option>Deep Tissue — 1hr $75</option>
+                <option>Deep Tissue — 2hr $140</option>
+                <option>Hot Rock — 1hr $80</option>
+                <option>Hot Rock — 2hr $150</option>
+                <option>Foot Massage + Scrub — 1hr $80</option>
+                <option>Relax Express — 30min $40</option>
+                <option>Couples Relaxing — 1hr $140</option>
+                <option>Couples Hot Rock — 1hr $150</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Preferred Date</label>
+              <input type="date" id="bDate" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Preferred Time</label>
+              <select id="bTime">
+                <option value="">Choose time</option>
+                <option>9:00 AM</option><option>10:00 AM</option>
+                <option>11:00 AM</option><option>12:00 PM</option>
+                <option>1:00 PM</option><option>2:00 PM</option>
+                <option>3:00 PM</option><option>4:00 PM</option>
+                <option>5:00 PM</option><option>6:00 PM</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Guests</label>
+              <select id="bGuests">
+                <option>1 person</option>
+                <option>2 people (couples)</option>
+                <option>3+</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Notes (optional)</label>
+            <textarea id="bNotes" placeholder="Any special requests or preferences?"></textarea>
+          </div>
+          <a href="#" class="btn-wa" id="waBookBtn" onclick="sendWhatsApp(event)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A12 12 0 0 0 3.48 20.52L2 22l1.48-1.48A12 12 0 1 0 20.52 3.48zM12 21a9 9 0 1 1 9-9 9 9 0 0 1-9 9z"/><path d="M17 14.5c-.3-.1-1.8-.9-2.1-1s-.5-.2-.7.2-1.1 1.3-1.4 1.6-.5.2-.9 0a8.6 8.6 0 0 1-2.5-1.6 9.4 9.4 0 0 1-1.7-2.2c-.2-.5 0-.7.1-.9l.6-.7.3-.5a.6.6 0 0 0 0-.6l-.9-2.1c-.2-.5-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.7 3.7 0 0 0-1.1 2.8 6.4 6.4 0 0 0 1.4 3.4c.2.3 2.5 3.8 6.1 5.3a7.3 7.3 0 0 0 2 .6 4.6 4.6 0 0 0 2.1-.1 3.4 3.4 0 0 0 2.2-1.6 2.9 2.9 0 0 0 .2-1.6c-.1-.2-.3-.3-.6-.4z"/></svg>
+            Send via WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <div class="booking-info">
+        <div class="booking-card">
+          <h4>📍 Find Us</h4>
+          <p>Pacific Center Local #1</p>
+          <p>Jacó, Costa Rica</p>
+          <a href="https://wa.me/50662162030" style="color:var(--teal);font-weight:600;margin-top:0.5rem;">
+            📱 +506 6216-2030
+          </a>
+        </div>
+        <div class="booking-card">
+          <h4>🕐 Opening Hours</h4>
+          <div style="display:flex;flex-direction:column;gap:0.5rem;">
+            <div class="hours-row"><span>Monday – Friday</span><span>9:00 AM – 8:00 PM</span></div>
+            <div class="hours-row"><span>Saturday</span><span>9:00 AM – 8:00 PM</span></div>
+            <div class="hours-row"><span>Sunday</span><span>10:00 AM – 6:00 PM</span></div>
+          </div>
+        </div>
+        <div class="booking-card">
+          <h4>📲 Contact &amp; Social</h4>
+          <a href="https://wa.me/50662162030" target="_blank" style="color:var(--text-mid);">
+            <span>💬</span> WhatsApp: +506 6216-2030
+          </a>
+          <a href="https://instagram.com" target="_blank" style="color:var(--text-mid);">
+            <span>📸</span> Instagram
+          </a>
+          <a href="https://facebook.com" target="_blank" style="color:var(--text-mid);">
+            <span>👍</span> Facebook
+          </a>
+          <p style="margin-top:0.75rem;font-size:0.8rem;color:var(--text-soft);">Walk-ins welcome — WhatsApp ahead for priority booking.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT STRIP -->
+<section id="contact" style="padding-bottom:5rem;">
+  <div class="container">
+    <div class="contact-strip">
+      <div class="contact-left">
+        <h3>Ready to relax?</h3>
+        <p>Message us on WhatsApp — we'll confirm your slot within minutes.</p>
+      </div>
+      <div class="contact-actions">
+        <a href="https://wa.me/50662162030" class="btn-white" target="_blank">
+          💬 WhatsApp Us
+        </a>
+        <a href="tel:+50662162030" class="btn-ghost">
+          📞 Call Now
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Angel's <span>Touch</span></div>
+  <div class="footer-sub">Salon &amp; Spa · Jacó, Costa Rica</div>
+  <div class="footer-links">
+    <a href="#services">Services</a>
+    <a href="#menu">Pricing</a>
+    <a href="#about">About</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#booking">Book</a>
+    <a href="https://wa.me/50662162030" target="_blank">WhatsApp</a>
+  </div>
+  <p class="footer-copy">📍 Pacific Center Local #1, Jacó, Costa Rica &nbsp;·&nbsp; +506 6216-2030</p>
+  <p class="footer-copy" style="margin-top:0.5rem;">© 2025 Angel's Touch Salon &amp; Spa. All rights reserved.</p>
+</footer>
+
+<!-- FLOATING WA BUTTON -->
+<a href="https://wa.me/50662162030" class="wa-float" target="_blank" aria-label="WhatsApp">💬</a>
+
+<script>
+  // Mobile menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+  });
+  function closeMobile() {
+    mobileMenu.classList.remove('open');
+  }
+
+  // WhatsApp booking
+  function sendWhatsApp(e) {
+    e.preventDefault();
+    const name    = document.getElementById('bName').value.trim() || 'Guest';
+    const service = document.getElementById('bService').value || 'Not specified';
+    const date    = document.getElementById('bDate').value || 'Flexible';
+    const time    = document.getElementById('bTime').value || 'Flexible';
+    const guests  = document.getElementById('bGuests').value;
+    const notes   = document.getElementById('bNotes').value.trim();
+
+    let msg = `Hello Angel's Touch! 🕊️\n\nI'd like to book a session:\n`;
+    msg += `👤 Name: ${name}\n`;
+    msg += `💆 Service: ${service}\n`;
+    msg += `📅 Date: ${date}\n`;
+    msg += `🕐 Time: ${time}\n`;
+    msg += `👥 Guests: ${guests}\n`;
+    if (notes) msg += `📝 Notes: ${notes}\n`;
+    msg += `\nThank you!`;
+
+    window.open('https://wa.me/50662162030?text=' + encodeURIComponent(msg), '_blank');
+  }
+
+  // Scroll nav shadow
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    nav.style.boxShadow = window.scrollY > 20
+      ? '0 2px 20px rgba(26,58,74,0.08)'
+      : 'none';
+  });
+
+  // Fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.service-card, .menu-table, .about-feature, .gallery-item, .booking-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
